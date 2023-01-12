@@ -6,15 +6,15 @@ import classNames from 'classnames';
 import usersFromServer from './api/users';
 
 import { getFullProducts } from './helpers/helpers';
-import { User } from './types/User';
+// import { User } from './types/User';
 
 export const App: FC = () => {
-  const [products, setProducts] = useState(getFullProducts);
-  const [selectedUser, setSelectedUser] = useState({ ...usersFromServer });
+  const [products] = useState(getFullProducts);
+  const [selectedUser] = useState({ ...usersFromServer });
 
-  const selectUser = (user: User): void => {
-    setSelectedUser({ user });
-  };
+  // const selectUser = (user: User): void => {
+  //   setSelectedUser({ user });
+  // };
 
   return (
     <div className="section">
@@ -43,7 +43,7 @@ export const App: FC = () => {
                       'is-active': user.id === selectedUser[0].id,
                     },
                   )}
-                  onClick={() => selectUser(user)}
+                  // onClick={() => selectUser(user)}
                 >
                   {`User ${user.id}`}
                 </a>
@@ -130,11 +130,11 @@ export const App: FC = () => {
         </div>
 
         <div className="box table-container">
-          {cond1 && (
+          {/* {cond1 && (
             <p data-cy="NoMatchingMessage">
               No products matching selected criteria
             </p>
-          )}
+          )} */}
 
           <table
             data-cy="ProductTable"
